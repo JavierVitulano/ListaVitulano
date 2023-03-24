@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <h1 class="mb-3">
+        Lista de alumnos
+    </h1>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombres</th> 
+          <th scope="col">E-mail</th>
+          <th scope="col">Fecha de nacimiento</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Nota</th>
+          <th scope="col">Aprobado</th>
+        </tr>
+      </thead>
+       <tbody *ngFor="let Alumno of alumnos">
+        <td >{{Alumno.id}}</td>      
+        <td >{{Alumno.firstName}}, {{Alumno.lastName}}</td>
+        <td >{{Alumno.email}}</td>
+        <td >{{Alumno.birthdate | date : "dd/MM/YYYY"}}</td>
+        <td >{{Alumno.course}}</td>
+        <td >{{Alumno.note}}</td>
+        <td [ngClass]="Alumno.approbed ? 'table-approbed': 'table-disapprove'">{{Alumno.approbed == true ? 'Si' : 'No' }}</td>
+
+      
+      </tbody> 
+    </table>
+  </div>
